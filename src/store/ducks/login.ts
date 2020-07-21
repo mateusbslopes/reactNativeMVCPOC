@@ -1,4 +1,4 @@
-import { LoginPayload } from "@types";
+import { LoginPayload } from "../../types";
 
 // Actions
 export const SET_EMAIL = "SET_ EMAIL";
