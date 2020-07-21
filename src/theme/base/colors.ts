@@ -5,7 +5,7 @@ export default {
         600: "rgb(137, 147, 149)"
     },
     primary: {
-        500: "rgb(26, 188, 156)",
+        500: "black",
         600: "rgb(77,164,139)"
     },
     ternary: {

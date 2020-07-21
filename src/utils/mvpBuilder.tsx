@@ -7,7 +7,7 @@ export default class MvpBuilder {
 
     static build(view: any | React.Component | ConnectedComponent<any, any>, presenter: Presenter, props: any) {
         return createClass({
-            displayName: "deusAbençoa",
+            displayName: "componenteDeTeste",
             render: function() {
                 return React.createElement(view, { presenter, ...props})
             }

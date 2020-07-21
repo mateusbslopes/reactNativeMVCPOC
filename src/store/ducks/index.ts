@@ -1,4 +1,5 @@
 import login from "./login";
-import { createStore } from "redux"
+import theme from "./theme"
+import { createStore, combineReducers } from "redux"
 
-export default createStore(login, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(combineReducers({ login, theme }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
