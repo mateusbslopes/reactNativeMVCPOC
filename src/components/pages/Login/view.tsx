@@ -5,7 +5,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { default as Presenter } from "./presenter";
 import { ViewWithProvider } from '../../../utils/viewWithProvider';
 import { setTheme } from '../../../store/ducks/theme';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Text } from 'react-native';
 
 const mapState = (state: any) => ({
   email: state.login.email,
@@ -15,7 +15,7 @@ const mapState = (state: any) => ({
 const mapDispatch = {
   setEmail: (email: String) => setEmailAction(email),
   setPassword: (email: String) => setPasswordAction(email),
-  toggleTheme: (string: Boolean) => setTheme(string)
+  toggleTheme: (string: String) => setTheme(string)
 }
 
 const connector = connect(mapState, mapDispatch);
@@ -32,11 +32,11 @@ class Login extends ViewWithProvider<LoginState, LoginProps> {
 
   render() {
     return (
-      <View css={theme => style(theme)}>
-        Email:
+      <View css={(theme: any) => style(theme)}>
+        <Text>Email:</Text>
         <TextInput onChangeText={text => this.presenter?.setEmail(text)} value={this.props.email} />
-        Value: {this.props.email}
-        Lights on? 
+        <Text>Value: {this.props.email}
+        Lights on? </Text>
         {/* <input type="checkbox" onChange={event => this.presenter?.toggleTheme(event.target.checked)}/> */}
       </View>
     );
@@ -45,7 +45,8 @@ class Login extends ViewWithProvider<LoginState, LoginProps> {
 
 const style = (theme: any) => {
   return `
-  color: ${theme.colors.primary[500]};
-`};
+    color: ${theme.colors.primary[500]};
+  `
+};
 
 export default connector(Login);
